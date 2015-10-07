@@ -14,7 +14,7 @@ var files = {
     dest: 'dist/assets/css'
   },
   html: {
-    src: '_src/html/*.html',
+    src: '_src/html/**/*.html',
     dest: 'dist/'
   },
   js: {
@@ -54,7 +54,7 @@ gulp.task('serve', ['sass'], function() {
 gulp.task('templates', function() {
   'use strict';
 
-  return gulp.src(files.html.src)
+  return gulp.src('_src/html/*.html')
       .pipe(swig())
       .pipe(gulp.dest(files.html.dest))
       .on('end', reload);
