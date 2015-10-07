@@ -5,6 +5,7 @@
 $base-font-size:                16px;
 $base-font-family:              'Open Sans', sans-serif;
 $base-line-height:              1.3;
+$font-primary:                  $base-font-family;
 
 
 
@@ -48,6 +49,12 @@ $light-blue:    #3c6fb4;
 $blue:          #3663a1;
 $dark-blue:     #1b3251;
 
+// Nav vars
+$color-white:     #fff;
+$color-black:     #000;
+$color-border:    #ddd;
+$color-accent:    #eee;
+$color-action:    #3c6fb4;
 
 $c-body:                 $dark-gray;  // body color
 $c-body-background:      $lighter-gray; // html/body background color
