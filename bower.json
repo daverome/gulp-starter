@@ -1,0 +1,20 @@
+{
+  "name": "gulp-starter",
+  "version": "0.0.0",
+  "authors": [
+    "Dave Romero <david@freshtilledsoil.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "normalize-scss": "~3.0.3",
+    "bourbon": "~4.2.3",
+    "neat": "~1.7.2"
+  }
+}

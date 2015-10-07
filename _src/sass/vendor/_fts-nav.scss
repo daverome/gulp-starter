@@ -1,0 +1,297 @@
+// Responsive JavaScript hooks
+
+@media screen and (max-width: $bp-wide) {
+
+  body:before {
+    content: "widescreen";
+    @include move-off-screen;
+    speak: none;
+  }
+}
+
+@media screen and (max-width: $bp-large) {
+
+  body:before {
+    content: "largescreen";
+  }
+
+}
+
+@media screen and (max-width: $bp-medium) {
+
+  body:before {
+    content: "mediumscreen";
+  }
+
+}
+
+// component objects
+
+.banner {
+  line-height: 60px;
+  background: #333;
+  color: #fff;
+  clear: both;
+  position: relative;
+  z-index: 999;
+  -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  @include clearfix;
+
+  a {
+    color: #fff;
+  }
+
+}
+
+.branding {
+  @include inline-block();
+  @include font-size(24);
+  @include is-uppercase();
+  @include is-clean();
+  font-weight: 400;
+  padding-left: 20px;
+  float: left;
+
+}
+
+.logo {
+  display: block;
+  text-decoration: none;
+}
+
+.nav {
+  float: right;
+  @include inline-block();
+}
+
+.nav-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu-item {
+  @include inline-block();
+  position: relative;
+
+  > a {
+    line-height: 60px;
+    display: block;
+    text-decoration: none;
+    padding: 1px 20px 0;
+    @include transition(all linear .1s);
+  }
+
+  &:hover,
+  > a:hover ,
+  > a:focus {
+    background: #000;
+
+    ~ .sub-menu,
+    .sub-menu {
+      top: 100%;
+      left: 0;
+    }
+
+  }
+
+}
+
+.sub-menu {
+  @include move-off-screen;
+  @include is-clean();
+  list-style: none;
+  min-width: 100%;
+
+  .child-has-focus & {
+    top: 100%;
+    left: 0;
+  }
+
+  .menu-item {
+    background: #111;
+    display: list-item;
+    line-height: normal;
+
+    > a {
+      display: block;
+      line-height: normal;
+      padding: 15px 20px;
+      text-decoration: none;
+
+      &:hover {
+        background: #333;
+      }
+    }
+  }
+}
+
+.nav-menu-toggle {
+  display: none;
+  float: right;
+  margin-right: 10px;
+  position: relative;
+  padding-left: 30px;
+  text-decoration: none;
+  @include is-uppercase();
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 3px;
+    background: #fff;
+    @include transition(all linear .1s);
+  }
+
+  &:before {
+    margin-top: -7px;
+
+    .nav-is-active & {
+      margin-top: -3px;
+      @include transform(rotate(45deg));
+      -webkit-transform-origin: center;
+      -moz-transform-origin: center;
+      transform-origin: center;
+    }
+
+  }
+
+  &:after {
+    margin-top: 2px;
+
+    .nav-is-active & {
+      margin-top: -3px;
+      @include transform(rotate(-45deg));
+      -webkit-transform-origin: center;
+      -moz-transform-origin: center;
+      transform-origin: center;
+    }
+
+  }
+
+} // .nav-menu-toggle
+
+.sub-menu-control {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  line-height: 60px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  @include font-size(12);
+}
+
+@media screen and (max-width: $bp-wide) {
+
+  .menu-item > a {
+    padding: 1px 10px 0;
+  }
+
+}
+
+@media screen and (max-width: $bp-large) {
+
+  .branding {
+    display: block;
+    padding-left: 10px;
+  }
+
+  .nav {
+    float: none;
+    width: 100%;
+    border-top: 1px solid #444;
+  }
+
+  .menu-item > a {
+    padding: 1px 10px 0;
+  }
+
+}
+
+@media screen and (max-width: $bp-medium) {
+
+  .branding {
+    float: left;
+    @include font-size(20);
+  }
+
+  /* make sure the menu can be opened before hiding it */
+  .js .nav {
+    @include move-off-screen;
+  }
+
+  .nav-is-active .nav {
+    position: static;
+  }
+
+  .nav:target {
+    position: static;
+  }
+
+  .menu-item {
+    display: block;
+    border-bottom: 1px solid #444;
+
+    &.has-children {
+      position: relative;
+
+      > .ui-toggle-button {
+        background: #666;
+        color: #fff;
+        width: 10%;
+        min-width: 50px;
+        float: right;
+        border: 0;
+        line-height: 60px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include is-clean();
+        @include inline-block();
+      }
+
+    } // .has-children
+
+  } // .menu-item
+
+  .nav-menu-toggle {
+    display: block;
+  }
+
+  .sub-menu {
+    position: static;
+    clear: both;
+
+    .js &[aria-expanded="false"] {
+      display: none;
+    }
+
+  }
+
+  .sub-menu-control {
+    display: block;
+  }
+}
+
+@media screen and (max-height: $bp-small) {
+
+  .banner,
+  .menu-item > a {
+     line-height: 48px;
+  }
+
+}

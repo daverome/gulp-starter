@@ -1,0 +1,58 @@
+<!doctype html>
+<!--[if lt IE 7]><html lang="en" class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html lang="en" class="no-js lt-ie10 lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html lang="en" class="no-js lt-ie10 lt-ie9"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html lang="en" class="no-js lt-ie10"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="en" class="no-js"><!--<![endif]-->
+<head>
+
+  <title>{% block title %}Grunt Starter{% endblock %}</title>
+
+  <link rel="dns-prefetch" href="//ajax.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="cleartype" content="on">
+
+  <link href="assets/css/styles.css" rel="stylesheet">
+  <noscript>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500' rel='stylesheet' type='text/css'>
+  </noscript>
+</head>
+<body>
+
+  <div class="is-hidden">
+    <ul>
+      <li><a href="#banner">Skip to banner</a></li>
+      <li><a href="#nav">Skip to main navigation</a></li>
+      <li><a href="#footer">Skip to footer</a></li>
+    </ul>
+  </div><!--/.is-hidden-->
+
+  {% include "../includes/header.html" %}
+
+  <main id="main" role="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "../includes/footer.html" %}
+
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: { families: [ 'Open+Sans:300,400,500' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
